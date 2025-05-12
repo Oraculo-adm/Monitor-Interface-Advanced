@@ -2,12 +2,15 @@
 <Window x:Class="MIA.UI.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Monitor Interface Advanced" Height="500" Width="800">
-    <Grid>
-        <TextBlock Text="Interface pronta para o Core." 
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   FontSize="20"
-                   Foreground="Gray" />
-    </Grid>
+        Title="Monitor Interface Advanced" Height="600" Width="900">
+    <DockPanel>
+        <Menu x:Name="MainMenu" DockPanel.Dock="Top"/>
+        <Grid>
+            <TextBlock Text="Interface Base Dinâmica Carregada"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       FontSize="24"
+                       Foreground="DarkGray"/>
+        </Grid>
+    </DockPanel>
 </Window>
