@@ -1,0 +1,5 @@
+C:\Users\Analista\MIA\Monitor-Interface-Advanced\MIA.Core\obj\Debug\net8.0\MIA.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Analista\MIA\Monitor-Interface-Advanced\MIA.Core\obj\Debug\net8.0\MIA.Core.AssemblyInfoInputs.cache
+C:\Users\Analista\MIA\Monitor-Interface-Advanced\MIA.Core\obj\Debug\net8.0\MIA.Core.AssemblyInfo.cs
+C:\Users\Analista\MIA\Monitor-Interface-Advanced\MIA.Core\obj\Debug\net8.0\MIA.Core.csproj.CoreCompileInputs.cache
+C:\Users\Analista\MIA\Monitor-Interface-Advanced\MIA.Core\obj\Debug\net8.0\MIA.Core.sourcelink.json

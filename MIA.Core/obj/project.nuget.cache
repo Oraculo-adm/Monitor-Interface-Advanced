@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "R6pqxF1QHEw=",
+  "dgSpecHash": "swLlgZmEtRc=",
   "success": true,
   "projectFilePath": "C:\\Users\\Analista\\MIA\\Monitor-Interface-Advanced\\MIA.Core\\MIA.Core.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Analista\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
   "logs": []
 }

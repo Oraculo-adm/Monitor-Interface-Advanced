@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MIA.UI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dfaec2441f80f81fb803b14d332545974bf1ea34")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+81ce3358f6d139a0cae7069e5f27f7941ea347eb")]
 [assembly: System.Reflection.AssemblyProductAttribute("MIA.UI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MIA.UI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,0 +1,13 @@
+C:\Users\Analista\MIA\Monitor-Interface-Advanced\MIA.Core\bin\Debug\net8.0-windows\MIA.Core.deps.json
+C:\Users\Analista\MIA\Monitor-Interface-Advanced\MIA.Core\bin\Debug\net8.0-windows\MIA.Core.dll
+C:\Users\Analista\MIA\Monitor-Interface-Advanced\MIA.Core\bin\Debug\net8.0-windows\MIA.Core.pdb
+C:\Users\Analista\MIA\Monitor-Interface-Advanced\MIA.Core\obj\Debug\net8.0-windows\MIA.Core.csproj.AssemblyReference.cache
+C:\Users\Analista\MIA\Monitor-Interface-Advanced\MIA.Core\obj\Debug\net8.0-windows\MIA.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Analista\MIA\Monitor-Interface-Advanced\MIA.Core\obj\Debug\net8.0-windows\MIA.Core.AssemblyInfoInputs.cache
+C:\Users\Analista\MIA\Monitor-Interface-Advanced\MIA.Core\obj\Debug\net8.0-windows\MIA.Core.AssemblyInfo.cs
+C:\Users\Analista\MIA\Monitor-Interface-Advanced\MIA.Core\obj\Debug\net8.0-windows\MIA.Core.csproj.CoreCompileInputs.cache
+C:\Users\Analista\MIA\Monitor-Interface-Advanced\MIA.Core\obj\Debug\net8.0-windows\MIA.Core.sourcelink.json
+C:\Users\Analista\MIA\Monitor-Interface-Advanced\MIA.Core\obj\Debug\net8.0-windows\MIA.Core.dll
+C:\Users\Analista\MIA\Monitor-Interface-Advanced\MIA.Core\obj\Debug\net8.0-windows\refint\MIA.Core.dll
+C:\Users\Analista\MIA\Monitor-Interface-Advanced\MIA.Core\obj\Debug\net8.0-windows\MIA.Core.pdb
+C:\Users\Analista\MIA\Monitor-Interface-Advanced\MIA.Core\obj\Debug\net8.0-windows\ref\MIA.Core.dll

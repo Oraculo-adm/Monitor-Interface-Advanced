@@ -1,0 +1,12 @@
+C:\Users\Analista\MIA\Monitor-Interface-Advanced\MIA.Shared\bin\Debug\net8.0\MIA.Shared.deps.json
+C:\Users\Analista\MIA\Monitor-Interface-Advanced\MIA.Shared\bin\Debug\net8.0\MIA.Shared.dll
+C:\Users\Analista\MIA\Monitor-Interface-Advanced\MIA.Shared\bin\Debug\net8.0\MIA.Shared.pdb
+C:\Users\Analista\MIA\Monitor-Interface-Advanced\MIA.Shared\obj\Debug\net8.0\MIA.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Analista\MIA\Monitor-Interface-Advanced\MIA.Shared\obj\Debug\net8.0\MIA.Shared.AssemblyInfoInputs.cache
+C:\Users\Analista\MIA\Monitor-Interface-Advanced\MIA.Shared\obj\Debug\net8.0\MIA.Shared.AssemblyInfo.cs
+C:\Users\Analista\MIA\Monitor-Interface-Advanced\MIA.Shared\obj\Debug\net8.0\MIA.Shared.csproj.CoreCompileInputs.cache
+C:\Users\Analista\MIA\Monitor-Interface-Advanced\MIA.Shared\obj\Debug\net8.0\MIA.Shared.sourcelink.json
+C:\Users\Analista\MIA\Monitor-Interface-Advanced\MIA.Shared\obj\Debug\net8.0\MIA.Shared.dll
+C:\Users\Analista\MIA\Monitor-Interface-Advanced\MIA.Shared\obj\Debug\net8.0\refint\MIA.Shared.dll
+C:\Users\Analista\MIA\Monitor-Interface-Advanced\MIA.Shared\obj\Debug\net8.0\MIA.Shared.pdb
+C:\Users\Analista\MIA\Monitor-Interface-Advanced\MIA.Shared\obj\Debug\net8.0\ref\MIA.Shared.dll

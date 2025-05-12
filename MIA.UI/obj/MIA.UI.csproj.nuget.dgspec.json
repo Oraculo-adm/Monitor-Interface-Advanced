@@ -4,14 +4,14 @@
     "C:\\Users\\Analista\\MIA\\Monitor-Interface-Advanced\\MIA.UI\\MIA.UI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Analista\\MIA\\Monitor-Interface-Advanced\\MIA.UI\\MIA.UI.csproj": {
+    "C:\\Users\\Analista\\MIA\\Monitor-Interface-Advanced\\MIA.Core\\MIA.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Analista\\MIA\\Monitor-Interface-Advanced\\MIA.UI\\MIA.UI.csproj",
-        "projectName": "MIA.UI",
-        "projectPath": "C:\\Users\\Analista\\MIA\\Monitor-Interface-Advanced\\MIA.UI\\MIA.UI.csproj",
+        "projectUniqueName": "C:\\Users\\Analista\\MIA\\Monitor-Interface-Advanced\\MIA.Core\\MIA.Core.csproj",
+        "projectName": "MIA.Core",
+        "projectPath": "C:\\Users\\Analista\\MIA\\Monitor-Interface-Advanced\\MIA.Core\\MIA.Core.csproj",
         "packagesPath": "C:\\Users\\Analista\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Analista\\MIA\\Monitor-Interface-Advanced\\MIA.UI\\obj\\",
+        "outputPath": "C:\\Users\\Analista\\MIA\\Monitor-Interface-Advanced\\MIA.Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Analista\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -19,6 +19,9 @@
         "originalTargetFrameworks": [
           "net8.0-windows"
         ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
         "frameworks": {
           "net8.0-windows7.0": {
             "targetAlias": "net8.0-windows",
@@ -39,6 +42,83 @@
       "frameworks": {
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WPF": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.408/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Analista\\MIA\\Monitor-Interface-Advanced\\MIA.UI\\MIA.UI.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Analista\\MIA\\Monitor-Interface-Advanced\\MIA.UI\\MIA.UI.csproj",
+        "projectName": "MIA.UI",
+        "projectPath": "C:\\Users\\Analista\\MIA\\Monitor-Interface-Advanced\\MIA.UI\\MIA.UI.csproj",
+        "packagesPath": "C:\\Users\\Analista\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Analista\\MIA\\Monitor-Interface-Advanced\\MIA.UI\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Analista\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0-windows"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0-windows7.0": {
+            "targetAlias": "net8.0-windows",
+            "projectReferences": {
+              "C:\\Users\\Analista\\MIA\\Monitor-Interface-Advanced\\MIA.Core\\MIA.Core.csproj": {
+                "projectPath": "C:\\Users\\Analista\\MIA\\Monitor-Interface-Advanced\\MIA.Core\\MIA.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0-windows7.0": {
+          "targetAlias": "net8.0-windows",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
