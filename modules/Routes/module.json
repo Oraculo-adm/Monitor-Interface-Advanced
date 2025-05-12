@@ -1,0 +1,14 @@
+
+{
+  "name": "Routes",
+  "version": "1.0.0",
+  "author": "Leone Martins",
+  "entryPoint": "Routes.Main",
+  "core": false,
+  "dependencies": ["NetInterfaces"],
+  "repository": "https://github.com/Oraculo-adm/Routes",
+  "ui": {
+    "inject": "Menu:Módulos",
+    "submenu": "Teste de rota"
+  }
+}

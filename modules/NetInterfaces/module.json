@@ -1,0 +1,14 @@
+
+{
+  "name": "NetInterfaces",
+  "version": "1.0.0",
+  "author": "Leone Martins",
+  "entryPoint": "NetInterfaces.Main",
+  "core": false,
+  "dependencies": [],
+  "repository": "https://github.com/Oraculo-adm/NetInterfaces",
+  "ui": {
+    "inject": "Menu:Módulos",
+    "submenu": "Exibir Interfaces"
+  }
+}
