@@ -1,0 +1,33 @@
+ETAPA 1: Estrutura base
+- Criação e estruturação do projeto base WPF .NET 8
+- Estrutura de pastas
+- Interface básica, volátil e personalizável pelo core. 
+- evita "hardcode" no núcleo e dá liberdade de criação aos módulos.
+- Fallback seguro, Se algum módulo falhar ou faltar dependência, o sistema não quebra. tornando o CORE seguro.
+- arquivo de despejo
+- pre preparação para compilação para Microsoft store e pre  conceito de atualização pela store ou pelo GitHub. 
+
+ETAPA 2 Interface base
+- Código do frontend com Layout responsivo
+- criação de uma camada de abstração, como UIManager, que aceite comandos do módulo core ou de terceiros. 
+- Menubox "Temas", "Módulos", "Opções" e "Ajuda"
+- Integração com as cores de destaque do Windows, compatibilidade com o AERO, compatibilidade com a transparência do Windows, compatibilidade com o tema escuro/claro do Windows.
+- Ligação com o modulo core para que ele possa gerir a interface, ligando/chamando/modificando a UI conforme o necessário, tendo varias pequenas funções gráficas em espera para serem utilizadas, como base de cores, formas, botões e menus.
+
+ETAPA 3 Modulo Core - Sistema de Módulos
+- Criar o core, o núcleo da aplicação que gerencia e escaneia os módulos e personaliza a interface conforme necessidade dos módulos.
+- Carregamento dinâmico de módulos via ModuleManager
+- Verifica a pasta /modules a cada inicialização
+- Menu “Módulos” com ativar/desativar, dependências, botão "Adicionar módulo..."
+- Geri o menu "opções de módulos" dentro do menu Opções, podendo adicionar opções definidas pelo módulos ativos. 
+- inserir na interface: "objetos, funções, formas, estruturas, temas, etc" cedidos pelos módulos através da pasta assets dentro de cada modulo, para que funcionem adequadamente e se eduquem a um layout agradável, podendo sobrescrever a UI base quando o modulo for ativado.
+- Realizar comunicação entre módulos, com ModuleBus ou algo similar. 
+- Ler o json dos módulos para verificar as dependências necessárias e se alguma faltar informar link fornecido pelo json de onde baixar as dependências.
+
+ETAPA 4 Módulos
+- Os modulos precisam conter um ModuleUI para declarar: "eu preciso de uma aba", "eu quero injetar um botão", "eu tenho uma visualização personalizada".
+- o json dos módulos devem conter obrigatoriamente a sua versão, autor, link do seu repositório e link do repositório das suas dependências, nome e versão das dependências, tratar o core como dependência, então precisa verificar a versão do modulo core para verificar compatibilidade, e conter o moduleUI. 
+- Criação do modulo "NET Interfaces" que consulta todas as interfaces de rede do dispositivo, e salva em sua memoria as informações desta interfaces como variáveis para serem utilizados por outros módulos, como driver, versão, chip, ipv4, ipv6, subnet, gateway e etc, podendo ser requisitado atualização dessas informações por outros módulos quando necessário.
+- Criação do modulo "Routes" que faz teste de rotas de para um IP especificado pelo usuário, se necessário pode utilizar o modulo "NET Interfaces" para realizar o teste em diversas interfaces, se o usuário desejar. 
+- Criação do modulo "Ping" que realiza teste de ping no gateway e no google e/ou no ip/hostname definido pelo usuário, utilizando o modulo "NET Interfaces" para realizar o teste no gateway de cada interface, e para pingar no host/ip/google pela interface que o usuário selecionar, podendo ser em todas ao mesmo tempo.  sendo possível utilizar o modulo "Graphic" para exibir um gráfico com o resultado do teste de ping, adicionar o submenu vel. teste de ping com 4 velocidades diferentes para realização do teste, adcionar o submenu "exibir graphic" para que seja exibido o gráfico do teste utilizando o modulo "Graphic" 
+- Criação do modulo "Graphic" que adiciona tudo que for necessário para geração de gráficos pelos outros módulos, podendo ser uma dependência. 
