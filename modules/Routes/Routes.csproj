@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <OutputPath>../Routes/</OutputPath>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\MIA.Core\MIA.Core.csproj" />
+    <ProjectReference Include="..\..\MIA.Shared\MIA.Shared.csproj" />
+  </ItemGroup>
+</Project>

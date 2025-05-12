@@ -3,30 +3,32 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Monitor Interface Advanced - MIA" Height="450" Width="800">
     <DockPanel>
-
-        <!-- Menu principal -->
         <Menu x:Name="MenuPrincipal" DockPanel.Dock="Top">
-          <MenuItem Header="Teste" x:Name="MenuTeste"/>
-          <MenuItem Header="Módulos" x:Name="MenuModulos"/>
-          <MenuItem Header="Temas"/>
-          <MenuItem Header="Opções"/>
-          <MenuItem Header="Ajuda">
-            <MenuItem Header="Sobre" Click="Sobre_Click"/>
-          </MenuItem>
+            <MenuItem Header="Teste" x:Name="MenuTeste"/>
+            <MenuItem Header="Módulos" x:Name="MenuModulos"/>
+            <MenuItem Header="Temas"/>
+            <MenuItem Header="Opções"/>
+            <MenuItem Header="Ajuda">
+                <MenuItem Header="Sobre" Click="Sobre_Click"/>
+            </MenuItem>
         </Menu>
 
+        <Label x:Name="StatusLabel"
+               DockPanel.Dock="Bottom"
+               Content="Inicializando..." 
+               Padding="10"
+               FontWeight="Bold"
+               HorizontalAlignment="Center" 
+               FontSize="14"
+               Foreground="Gray"/>
 
-        <!-- Status inferior -->
-        <StatusBar DockPanel.Dock="Bottom">
-            <StatusBarItem>
-                <Label x:Name="StatusLabel" Content="Iniciando..." />
-            </StatusBarItem>
-        </StatusBar>
-
-        <!-- Conteúdo principal -->
         <Grid>
-            <!-- Pode adicionar conteúdo principal aqui -->
+            <TextBlock Text="Interface Base Dinâmica Carregada"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="16"
+                       FontWeight="SemiBold"
+                       Foreground="Gray"/>
         </Grid>
-
     </DockPanel>
 </Window>
