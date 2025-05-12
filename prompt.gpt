@@ -1,4 +1,45 @@
-ETAPA 1: Estrutura base
+
+
+
+# Prompt GPT usado para gerar o projeto Monitor Interface Advanced (MIA)
+
+Este prompt foi desenvolvido por Leone Martins (Oraculo-adm) e executado passo a passo com o ChatGPT-4o para construir a aplicação do zero.
+
+## 🌐 Objetivo
+Criar uma aplicação modular para Windows 10+ com foco em:
+- Monitoramento de interfaces de rede
+- Teste de conectividade (gateway e internet)
+- Interface compatível com tema escuro/claro e Aero
+- Estrutura de módulos carregáveis e isolados
+- Gráficos visuais de ping
+- Sem dependências manuais para o usuário
+
+## 🧠 Premissas passadas ao GPT:
+- Evitar hardcode no núcleo (uso de UIManager)
+- Os módulos devem ser ativáveis/desativáveis dinamicamente
+- Interface gráfica controlada por módulos (via ModuleUI)
+- Core é inativo se qualquer módulo quebrar
+- Permitir updates via GitHub no futuro
+- Modularidade como foco principal
+- Estrutura baseada em .NET 8 + WPF
+
+## 📦 Etapas executadas:
+1. Estrutura base com MIA.UI, MIA.Core, MIA.Shared
+2. Criação do UIManager
+3. Injeção dinâmica de menus (Opções, Módulos, Temas, Ajuda)
+4. Sistema de módulos com dependências e module.json
+5. Implementação dos módulos:
+   - NetInterfaces
+   - PingMonitor
+   - Graphic
+   - Routes
+6. Integração de gráfico por módulo sem alterar a MainWindow
+7. Comunicação entre módulos e injeção visual via ModuleUI
+8. Organização para distribuição futura e integração com Windows Store
+
+Este prompt reflete uma construção altamente controlada, pensada para modularidade, expansibilidade e manutenção de longo prazo.
+
+## ETAPA 1: Estrutura base
 - Criação e estruturação do projeto base WPF .NET 8
 - Estrutura de pastas
 - Interface básica, volátil e personalizável pelo core. 
@@ -7,14 +48,14 @@ ETAPA 1: Estrutura base
 - arquivo de despejo
 - pre preparação para compilação para Microsoft store e pre  conceito de atualização pela store ou pelo GitHub. 
 
-ETAPA 2 Interface base
+## ETAPA 2 Interface base
 - Código do frontend com Layout responsivo
 - criação de uma camada de abstração, como UIManager, que aceite comandos do módulo core ou de terceiros. 
 - Menubox "Temas", "Módulos", "Opções" e "Ajuda"
 - Integração com as cores de destaque do Windows, compatibilidade com o AERO, compatibilidade com a transparência do Windows, compatibilidade com o tema escuro/claro do Windows.
 - Ligação com o modulo core para que ele possa gerir a interface, ligando/chamando/modificando a UI conforme o necessário, tendo varias pequenas funções gráficas em espera para serem utilizadas, como base de cores, formas, botões e menus.
 
-ETAPA 3 Modulo Core - Sistema de Módulos
+## ETAPA 3 Modulo Core - Sistema de Módulos
 - Criar o core, o núcleo da aplicação que gerencia e escaneia os módulos e personaliza a interface conforme necessidade dos módulos.
 - Carregamento dinâmico de módulos via ModuleManager
 - Verifica a pasta /modules a cada inicialização
@@ -24,7 +65,7 @@ ETAPA 3 Modulo Core - Sistema de Módulos
 - Realizar comunicação entre módulos, com ModuleBus ou algo similar. 
 - Ler o json dos módulos para verificar as dependências necessárias e se alguma faltar informar link fornecido pelo json de onde baixar as dependências.
 
-ETAPA 4 Módulos
+## ETAPA 4 Módulos
 - Os modulos precisam conter um ModuleUI para declarar: "eu preciso de uma aba", "eu quero injetar um botão", "eu tenho uma visualização personalizada".
 - o json dos módulos devem conter obrigatoriamente a sua versão, autor, link do seu repositório e link do repositório das suas dependências, nome e versão das dependências, tratar o core como dependência, então precisa verificar a versão do modulo core para verificar compatibilidade, e conter o moduleUI. 
 - Criação do modulo "NET Interfaces" que consulta todas as interfaces de rede do dispositivo, e salva em sua memoria as informações desta interfaces como variáveis para serem utilizados por outros módulos, como driver, versão, chip, ipv4, ipv6, subnet, gateway e etc, podendo ser requisitado atualização dessas informações por outros módulos quando necessário.
