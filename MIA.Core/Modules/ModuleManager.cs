@@ -1,82 +1,145 @@
-
 using System;
-using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Reflection;
+using System.Windows;
 using System.Windows.Controls;
-using Newtonsoft.Json.Linq;
+using MIA.Core.Interfaces;
+using MIA.Core.Models;
+using MIA.Core.UI;
+using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace MIA.Core.Modules
 {
-    public class ModuleInfo
-    {
-        public string Name { get; set; }
-        public string Version { get; set; }
-        public bool IsCore { get; set; }
-        public List<string> Dependencies { get; set; }
-        public string EntryPoint { get; set; }
-        public string Repository { get; set; }
-        public JObject UI { get; set; }
-    }
-
     public static class ModuleManager
     {
-        public static List<ModuleInfo> Modules { get; private set; } = new();
-        public static string ModulesPath => Path.Combine(Directory.GetCurrentDirectory(), "modules");
+        public static string StatusMessage { get; private set; } = "";
 
-        public static void LoadModules(MenuItem menuModulos, MenuItem menuOpcoes)
+        public static void LoadModules(Menu menuPrincipal, Window janelaPrincipal, Label statusLabel, Menu menuModulos, Menu menuTeste)
         {
-            if (!Directory.Exists(ModulesPath))
-                Directory.CreateDirectory(ModulesPath);
+            string modulesPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "modules");
+            int carregados = 0, corrompidos = 0, incompatíveis = 0;
+            bool temModulos = false;
 
-            Modules.Clear();
-            menuModulos.Items.Clear();
+            ModuleUIManager.Modulos.Clear();
 
-            foreach (var dir in Directory.GetDirectories(ModulesPath))
+            if (!Directory.Exists(modulesPath))
             {
-                var jsonPath = Path.Combine(dir, "module.json");
-                if (!File.Exists(jsonPath)) continue;
+                Directory.CreateDirectory(modulesPath);
+                StatusMessage = "Nenhum Modulo Reconhecido";
+                statusLabel.Content = StatusMessage;
+                return;
+            }
+
+            string[] moduleFolders = Directory.GetDirectories(modulesPath);
+
+            foreach (string moduleFolder in moduleFolders)
+            {
+                string jsonPath = Directory.GetFiles(moduleFolder, "*.json").FirstOrDefault();
+                if (jsonPath == null)
+                {
+                    corrompidos++;
+                    continue;
+                }
+
+                temModulos = true;
 
                 try
                 {
-                    var json = JObject.Parse(File.ReadAllText(jsonPath));
-                    var module = new ModuleInfo
+                    string json = File.ReadAllText(jsonPath);
+                    dynamic metadata = JsonConvert.DeserializeObject(json);
+
+                    if (metadata == null || metadata.entry == null || metadata.version == null || metadata.name == null)
                     {
-                        Name = json["name"]?.ToString() ?? "Desconhecido",
-                        Version = json["version"]?.ToString(),
-                        IsCore = json["core"]?.ToObject<bool>() ?? false,
-                        EntryPoint = json["entryPoint"]?.ToString(),
-                        Repository = json["repository"]?.ToString(),
-                        UI = json["ui"] as JObject,
-                        Dependencies = json["dependencies"]?.ToObject<List<string>>() ?? new List<string>()
+                        corrompidos++;
+                        continue;
+                    }
+
+                    string entry = metadata.entry;
+                    string[] parts = entry.Split('.');
+                    if (parts.Length != 2)
+                    {
+                        corrompidos++;
+                        continue;
+                    }
+
+                    string modulo = parts[0];
+                    string classe = parts[1];
+
+                    string dllPath = Path.Combine(moduleFolder, $"{modulo}.dll");
+                    if (!File.Exists(dllPath))
+                    {
+                        incompatíveis++;
+                        continue;
+                    }
+
+                    Assembly assembly = Assembly.LoadFrom(dllPath);
+                    Type type = assembly.GetType($"{modulo}.{classe}");
+                    if (type == null)
+                    {
+                        incompatíveis++;
+                        continue;
+                    }
+
+                    object instance = Activator.CreateInstance(type);
+                    var isLib = metadata.isLib != null && metadata.isLib == true;
+
+                    var modMeta = new ModuleMetadata
+                    {
+                        Name = metadata.name,
+                        Version = metadata.version,
+                        Author = metadata.author ?? "Desconhecido",
+                        IsLib = isLib,
+                        Enabled = true,
+                        EntryClass = entry,
+                        Launch = instance is IModule m ? new Action(() => m.Initialize()) : null
                     };
 
-                    Modules.Add(module);
-
-                    var menuItem = new MenuItem
+                    if (metadata.dependencies != null)
                     {
-                        Header = module.Name + (module.IsCore ? " (core)" : ""),
-                        IsEnabled = !module.IsCore,
-                        ToolTip = $"Versão: {module.Version}"
-                    };
+                        foreach (var dep in metadata.dependencies)
+                        {
+                            modMeta.Dependencies.Add(new ModuleDependency
+                            {
+                                Name = dep.name,
+                                Required = dep.required == null || dep.required == true
+                            });
+                        }
+                    }
 
-                    menuModulos.Items.Add(menuItem);
+                    ModuleUIManager.Modulos[modMeta.Name] = modMeta;
 
-                    if (module.UI != null && module.UI.ContainsKey("submenu"))
+                    if (instance is IModule moduleInstance)
                     {
-                        var submenu = new MenuItem { Header = module.UI["submenu"]?.ToString() };
-                        menuOpcoes.Items.Add(submenu);
+                        moduleInstance.Initialize();
+                        carregados++;
+                    }
+
+                    if (instance is IModuleUI ui)
+                    {
+                        ui.InjectUI(menuPrincipal, janelaPrincipal);
                     }
                 }
-                catch (Exception ex)
+                catch
                 {
-                    Console.WriteLine($"Erro ao carregar módulo: {ex.Message}");
+                    corrompidos++;
                 }
             }
 
-            var btnAbrir = new MenuItem { Header = "Adicionar módulo..." };
-            btnAbrir.Click += (s, e) => System.Diagnostics.Process.Start("explorer", ModulesPath);
-            menuModulos.Items.Add(new Separator());
-            menuModulos.Items.Add(btnAbrir);
+            if (!temModulos)
+                StatusMessage = "Nenhum Modulo Reconhecido";
+            else if (carregados == 0 && corrompidos == 0 && incompatíveis == 0)
+                StatusMessage = "Nenhum Modulo Carregado";
+            else if (carregados > 0)
+                StatusMessage = $"{carregados} Módulo(s) Carregado(s)";
+            else if (incompatíveis > 0)
+                StatusMessage = $"{incompatíveis} Módulo(s) Incompatíveis";
+            else if (corrompidos > 0)
+                StatusMessage = $"{corrompidos} Módulo(s) Corrompidos/Desconhecidos";
+
+            statusLabel.Content = StatusMessage;
+            ModuleUIManager.PopularMenus(menuModulos, menuTeste);
         }
     }
 }

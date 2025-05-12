@@ -1,7 +1,5 @@
-
 using System.Windows;
-using System.Windows.Controls;
-using MIA.Core.UI;
+using MIA.Core.Modules;
 
 namespace MIA.UI
 {
@@ -11,25 +9,13 @@ namespace MIA.UI
         {
             InitializeComponent();
 
-            // Inicializa o sistema de UI dinâmica
-            UIManager.Initialize(MainMenu);
+            // Carrega os módulos e injeta no Menu e Label
+            ModuleManager.LoadModules(MenuPrincipal, this, StatusLabel, MenuModulos, MenuTeste);
+        }
 
-            // Cria menus principais
-            UIManager.CreateBaseMenu("Temas");
-            UIManager.CreateBaseMenu("Módulos");
-            UIManager.CreateBaseMenu("Opções");
-
-            var ajuda = UIManager.CreateBaseMenu("Ajuda");
-            var sobre = new MenuItem { Header = "Sobre" };
-            sobre.Click += (s, e) =>
-            {
-                MessageBox.Show(
-                    "Monitor Interface Advanced (MIA)\nVersão: 1.0.0",
-                    "Sobre",
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Information);
-            };
-            ajuda.Items.Add(sobre);
+        private void Sobre_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Monitor Interface Advanced - MIA\nVersão 1.0.0\nDesenvolvido por Leone Martins com assistência da IA.", "Sobre", MessageBoxButton.OK, MessageBoxImage.Information);
         }
     }
 }

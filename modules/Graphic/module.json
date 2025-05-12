@@ -3,12 +3,7 @@
   "name": "Graphic",
   "version": "1.0.0",
   "author": "Leone Martins",
-  "entryPoint": "Graphic.Main",
-  "core": false,
-  "dependencies": [],
-  "repository": "https://github.com/Oraculo-adm/Graphic",
-  "ui": {
-    "inject": "Menu:Opções",
-    "submenu": "Exibir gráfico"
-  }
+  "coreDependency": "1.0.0",
+  "entry": "Graphic.Main",
+  "repository": "https://github.com/Oraculo-adm/Monitor-Interface-Advanced"
 }

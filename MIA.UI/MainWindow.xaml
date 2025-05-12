@@ -1,16 +1,32 @@
-
 <Window x:Class="MIA.UI.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Monitor Interface Advanced" Height="600" Width="900">
+        Title="Monitor Interface Advanced - MIA" Height="450" Width="800">
     <DockPanel>
-        <Menu x:Name="MainMenu" DockPanel.Dock="Top"/>
+
+        <!-- Menu principal -->
+        <Menu x:Name="MenuPrincipal" DockPanel.Dock="Top">
+          <MenuItem Header="Teste" x:Name="MenuTeste"/>
+          <MenuItem Header="Módulos" x:Name="MenuModulos"/>
+          <MenuItem Header="Temas"/>
+          <MenuItem Header="Opções"/>
+          <MenuItem Header="Ajuda">
+            <MenuItem Header="Sobre" Click="Sobre_Click"/>
+          </MenuItem>
+        </Menu>
+
+
+        <!-- Status inferior -->
+        <StatusBar DockPanel.Dock="Bottom">
+            <StatusBarItem>
+                <Label x:Name="StatusLabel" Content="Iniciando..." />
+            </StatusBarItem>
+        </StatusBar>
+
+        <!-- Conteúdo principal -->
         <Grid>
-            <TextBlock Text="Interface Base Dinâmica Carregada"
-                       VerticalAlignment="Center"
-                       HorizontalAlignment="Center"
-                       FontSize="24"
-                       Foreground="DarkGray"/>
+            <!-- Pode adicionar conteúdo principal aqui -->
         </Grid>
+
     </DockPanel>
 </Window>
