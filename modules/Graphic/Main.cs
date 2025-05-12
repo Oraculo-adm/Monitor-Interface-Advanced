@@ -5,7 +5,7 @@ namespace Graphic
     {
         public static void Start()
         {
-            // Futuro: fornecer gráficos para uso em outros módulos
+            GraphicService.Initialize();
         }
     }
 }
