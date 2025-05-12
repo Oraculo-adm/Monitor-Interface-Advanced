@@ -1,0 +1,14 @@
+
+{
+  "name": "PingMonitor",
+  "version": "1.0.0",
+  "author": "Leone Martins",
+  "entryPoint": "PingMonitor.Main",
+  "core": false,
+  "dependencies": ["NetInterfaces"],
+  "repository": "https://github.com/Oraculo-adm/PingMonitor",
+  "ui": {
+    "inject": "Menu:Opções",
+    "submenu": "Vel. teste de ping"
+  }
+}

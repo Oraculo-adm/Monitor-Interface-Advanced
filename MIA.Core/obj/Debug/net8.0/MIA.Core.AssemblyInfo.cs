@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MIA.Core")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f98ee9179c99d85b9d5dba00e659e19deb3a8220")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fb54c864388fadb0c9eb39b93e5e8f4600eb9c5c")]
 [assembly: System.Reflection.AssemblyProductAttribute("MIA.Core")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MIA.Core")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
